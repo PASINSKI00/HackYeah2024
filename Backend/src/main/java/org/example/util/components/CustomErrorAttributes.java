@@ -1,0 +1,38 @@
+package org.example.util.components;
+
+import java.util.Map;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
+import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.WebRequest;
+
+@Component
+public class CustomErrorAttributes extends DefaultErrorAttributes {
+
+    @Override
+    public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
+        Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, options);
+
+        String defaultMessage = "";
+        if(errorAttributes.get("errors") != null) {
+            String errorJson = errorAttributes.get("errors").toString();
+
+            int index = errorJson.lastIndexOf("default message [");
+            if (index != -1) {
+                defaultMessage = errorJson.substring(index + "default message [".length(), errorJson.length() - 2);
+            }
+        }
+
+        errorAttributes.remove("timestamp");
+        errorAttributes.remove("status");
+        errorAttributes.remove("error");
+        errorAttributes.remove("path");
+        errorAttributes.remove("message");
+        errorAttributes.remove("errors");
+
+        errorAttributes.put("message", defaultMessage);
+
+        return errorAttributes;
+    }
+
+}

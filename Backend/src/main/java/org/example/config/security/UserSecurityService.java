@@ -1,0 +1,34 @@
+package org.example.config.security;
+
+import org.example.user.AppUser;
+import org.example.user.AppUserRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class UserSecurityService {
+
+    private AppUserRepository appUserRepository;
+
+    public boolean isEmailTaken(String email) {
+        return appUserRepository.findByEmail(email).isPresent();
+    }
+
+    public Long getLoggedUserId() {
+        AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return appUser.getIdUser();
+    }
+
+    public AppUser getLoggedUser() {
+        return (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    }
+
+    public void setUsersImage(boolean value, String fileName) {
+        AppUser appUser = getLoggedUser();
+        appUser.setImageSet(value);
+        appUser.setImageName(fileName);
+        appUserRepository.save(appUser);
+    }
+}
