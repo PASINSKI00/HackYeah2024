@@ -63,3 +63,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Next.js ###
+node_modules
+.next
