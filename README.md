@@ -16,6 +16,7 @@
    docker compose -f docker-compose.prod.yml up --build
    ```
 
+</br>
 
 ### How to run backend application locally using IntellijIdea IDE
    - trigger 'Local postgres containter setup' build configuration
@@ -23,9 +24,11 @@
    
    application is now available at localhost:8080
 
+</br>
+
 ### How to upload changes to the Production environment
    - frontend
-   
+
    ```bash
    ./deploy-frontend-docker-image.sh
    ```
