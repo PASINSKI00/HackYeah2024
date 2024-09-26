@@ -26,7 +26,7 @@
 
 </br>
 
-### How to upload changes to the Production environment
+### How to deploy changes to the Production environment
    - frontend
 
    ```bash
