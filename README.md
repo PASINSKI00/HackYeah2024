@@ -25,6 +25,7 @@
 
 ### How to upload changes to the Production environment
    - frontend
+   
    ```bash
    ./deploy-frontend-docker-image.sh
    ```
