@@ -62,6 +62,9 @@ public class SecurityConfiguration {
 
     @Bean
     public CorsFilter corsFilter() {
+        if(environment.getActiveProfiles().length == 0)
+            throw new RuntimeException("No active profile set");
+
         String activeEnv = environment.getActiveProfiles()[0];
 
         CorsConfiguration corsConfiguration = new CorsConfiguration();
