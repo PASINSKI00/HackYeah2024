@@ -17,8 +17,31 @@
    ```
 
 
-### How to run backend application using IntellijIdea IDE
+### How to run backend application locally using IntellijIdea IDE
    - trigger 'Local postgres containter setup' build configuration
    - trigger 'run api' build configuration
    
    application is now available at localhost:8080
+
+### How to upload changes to the Production environment
+   - frontend
+   ```bash
+   ./deploy-frontend-docker-image.sh
+   ```
+
+   - backend
+
+   trigger 'publish image latest' build configuration in IntellijIdea
+   
+
+</br>
+
+### How to create cloud enviroment
+   If not Krystian then ask Krystian
+
+   else 
+   ```bash
+   terraform plan -var-file="variables/prod.tfvars"  
+   terraform apply -var-file="variables/prod.tfvars"  
+   ```
+
