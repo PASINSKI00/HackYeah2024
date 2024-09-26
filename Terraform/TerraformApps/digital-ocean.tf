@@ -43,7 +43,7 @@ resource "digitalocean_database_db" "hackyeah2024-db" {
 
 resource "digitalocean_app" "backend-app" {
   spec {
-    name   = "${var.environment}-backend-app"
+    name   = "hackyeah-backend-app"
     region = var.app_platform_region_do
 
     # domain {
@@ -116,7 +116,7 @@ resource "digitalocean_database_firewall" "db-trusted-sources" {
 
 resource "digitalocean_app" "frontend-app" {
   spec {
-    name   = "${var.environment}-frontend-app"
+    name   = "hackyeah-frontend-app"
     region = var.app_platform_region_do
 
     # domain {
