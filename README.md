@@ -15,3 +15,10 @@
    ```bash
    docker compose -f docker-compose.prod.yml up --build
    ```
+
+
+### How to run backend application using IntellijIdea IDE
+   - trigger 'Local postgres containter setup' build configuration
+   - trigger 'run api' build configuration
+   
+   application is now available at localhost:8080
