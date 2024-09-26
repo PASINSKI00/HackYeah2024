@@ -19,6 +19,8 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <start-class>org.example.ExampleSpringBootApplication</start-class>
+
   </properties>
   <dependencies>
     <dependency>
@@ -67,9 +69,24 @@
       <build>
         <plugins>
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                  <mainClass>org.example.ExampleSpringBootApplication</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+          <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
             <configuration>
+              <mainClass>org.example.ExampleSpringBootApplication</mainClass>
+              <layout>JAR</layout>
               <image>
                 <publish>true</publish>
               </image>
@@ -80,6 +97,13 @@
                 </publishRegistry>
               </docker>
             </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>repackage</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
@@ -109,5 +133,4 @@
       </build>
     </profile>
   </profiles>
-
 </project>
