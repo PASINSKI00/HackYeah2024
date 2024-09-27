@@ -30,12 +30,15 @@
    - frontend
 
    ```bash
+   Start docker
    ./deploy-frontend-docker-image.sh
    ```
 
    - backend
-
+   ```bash
+   Start docker
    trigger 'publish image latest' build configuration in IntellijIdea
+   ```
    
 
 </br>
