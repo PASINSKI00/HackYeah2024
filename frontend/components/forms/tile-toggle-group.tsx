@@ -1,7 +1,7 @@
 import React from 'react';
-import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group';
 import { IconComponent } from '@/types';
 import Tile from '../ui/tile';
+import { useController } from 'react-hook-form';
 
 export type ToggleGroupData = {
   value: string;
@@ -10,20 +10,33 @@ export type ToggleGroupData = {
 };
 
 interface ToggleGroupTileProps {
-  // name: string;
+  name: string;
+  label: string;
   data: ToggleGroupData[];
 }
 
-const TileToggleGroup = ({ data }: ToggleGroupTileProps) => {
+function TileToggleGroup({ name, label, data }: ToggleGroupTileProps) {
+  const { field } = useController({ name });
+
   return (
-    <ToggleGroup type='single'>
-      {data.map((item) => (
-        <ToggleGroupItem value={item.value} key={item.value}>
-        <Tile label={item.label} Icon={item.Icon} />
-        </ToggleGroupItem>
-      ))}
-    </ToggleGroup>
+    <div>
+      <label className='text-blue-700 mb-2 block text-lg font-bold'>
+        {label}
+      </label>
+      <div className='flex gap-4'>
+        {data.map((item) => (
+          <Tile
+            key={item.value}
+            label={item.label}
+            Icon={item.Icon}
+            className='cursor-pointer flex-1'
+            active={field.value === item.value}
+            onClick={() => field.onChange(item.value)}
+          />
+        ))}
+      </div>
+    </div>
   );
-};
+}
 
 export default TileToggleGroup;

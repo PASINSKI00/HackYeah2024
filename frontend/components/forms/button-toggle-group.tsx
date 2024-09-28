@@ -1,20 +1,38 @@
-import React from 'react'
-import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group'
+import React from 'react';
+import { useController } from 'react-hook-form';
+import Chips from '../ui/chips';
 
-const ButtonToggleGroup = () => {
-  return (
-    <ToggleGroup type="single">
-      <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        raz
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        dwa
-      </ToggleGroupItem>
-      <ToggleGroupItem value="underline" aria-label="Toggle underline">
-        trzy
-      </ToggleGroupItem>
-    </ToggleGroup>
-  )
+export type ToggleGroupData = {
+  value: string;
+  label: string;
+};
+
+interface ButtonToggleGroupProps {
+  name: string;
+  label: string;
+  data: ToggleGroupData[];
 }
 
-export default ButtonToggleGroup
+function ButtonToggleGroup({ name, label, data }: ButtonToggleGroupProps) {
+  const { field } = useController({ name });
+
+  return (
+    <div>
+      <label className='text-blue-700 mb-2 block text-lg font-bold'>
+        {label}
+      </label>
+      <div className='flex gap-4'>
+        {data.map((item) => (
+          <Chips
+            key={item.value}
+            label={item.label}
+            inactive={field.value !== item.value}
+            onClick={() => field.onChange(item.value)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default ButtonToggleGroup;
