@@ -9,6 +9,7 @@ interface SectionProps {
   imageSrc: string;
   statistics: StatisticProps[];
   color: 'blue' | 'green';
+  withCO2?: boolean;
 }
 
 function Section({
@@ -18,6 +19,7 @@ function Section({
   imageSrc,
   statistics,
   color,
+  withCO2 = true,
 }: SectionProps) {
   return (
     <section
@@ -43,11 +45,20 @@ function Section({
       </h3>
       <div className='relative z-10 mt-3 flex gap-2 rounded-xl bg-white p-2'>
         <div className='w-[60%]'>
-          <p className={cn('mb-1 text-3xl font-[900]', {
-            'text-red': color === 'blue',
-            'text-green': color === 'green',
-         })}>{value}</p>
-          <p className='text-gray text-xs'>{description}</p>
+          <p
+            className={cn('mb-1 text-3xl font-[900]', {
+              'text-red': color === 'blue',
+              'text-green': color === 'green',
+            })}
+          >
+            {value}{' '}
+            {withCO2 && (
+              <span className='text-lg font-normal'>
+                CO<sub>2</sub>
+              </span>
+            )}
+          </p>
+          <p className='text-xs text-gray'>{description}</p>
         </div>
         <div className='flex w-[40%] flex-col gap-2'>
           {statistics.map((statistic) => (

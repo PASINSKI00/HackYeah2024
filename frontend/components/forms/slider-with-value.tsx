@@ -1,50 +1,50 @@
 'use client';
 
 import { Slider } from '@/components/ui/slider';
-import { useState, useEffect } from 'react';
+import { useController } from 'react-hook-form';
 
 export interface SliderWithValueProps {
+  name: string;
+  label: string;
   min: number;
   max: number;
-  defaultValue: number;
-  step: number;
-  onChange: (value: number) => void;
+  step?: number;
   unit?: string;
 }
 
 export default function SliderWithValue({
-  defaultValue = 0,
+  name,
+  label,
+  unit,
   max = 100,
   min = 0,
-  onChange,
   step = 1,
-  unit,
 }: SliderWithValueProps) {
-  const [value, setValue] = useState(defaultValue);
-
-  useEffect(() => {
-    setValue(defaultValue);
-  }, [defaultValue]);
+  const { field } = useController({ name });
 
   const handleChange = (newValue: number[]) => {
     const updatedValue = newValue[0];
-    setValue(updatedValue);
-    onChange(updatedValue);
+    field.onChange(updatedValue);
   };
 
   return (
-    <div className='flex flex-row items-center gap-5'>
-      <Slider
-        className='max-w-52'
-        step={step}
-        onValueChange={handleChange}
-        value={[value]}
-        min={min}
-        max={max}
-      />
-      <span className='flex h-8 w-12 flex-row items-center justify-center rounded-full bg-blue text-xs text-white'>
-        {unit ? `${value} ${unit}` : value}
-      </span>
+    <div>
+      <label className='mb-2 block text-lg font-bold text-blue-700'>
+        {label}
+      </label>
+
+      <div className='flex items-center gap-5'>
+        <Slider
+          step={step}
+          onValueChange={handleChange}
+          value={[field.value]}
+          min={min}
+          max={max}
+        />
+        <span className='flex h-8 w-24 flex-row items-center justify-center rounded-full bg-blue px-2 text-xs text-white'>
+          {unit ? `${field.value} ${unit}` : field.value}
+        </span>
+      </div>
     </div>
   );
 }
