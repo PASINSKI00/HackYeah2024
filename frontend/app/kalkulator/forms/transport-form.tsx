@@ -11,6 +11,7 @@ import TrainOutlinedIcon from '@mui/icons-material/TrainOutlined';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
 import { TransportFormData, transportFormInitials } from './constants';
+import SliderWithValue from '@/components/forms/slider-with-value';
 
 const transportData: ToggleGroupData[] = [
   { label: 'Samochód', value: 'car', Icon: DirectionsCarFilledOutlinedIcon },
@@ -37,6 +38,7 @@ const TransportForm = () => {
           label='Rodzaj transportu'
           data={transportData}
         />
+        <SliderWithValue step={1} min={0} max={100} defaultValue={20} onChange={() => {}}/>
         <ButtonToggleGroup name='fuel' label="Rodzaj paliwa" data={fuelData} />
         <TransportCalculated />
       </div>
