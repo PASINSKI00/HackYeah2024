@@ -18,6 +18,12 @@ const config: Config = {
           100: 'var(--blue-100)',
           700: 'var(--blue-700)',
         },
+        red: {
+          DEFAULT: 'var(--red)',
+        },
+        gray: {
+          DEFAULT: 'var(--gray)',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

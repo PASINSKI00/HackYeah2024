@@ -9,7 +9,7 @@ import NetworkWifi3BarOutlinedIcon from '@mui/icons-material/NetworkWifi3BarOutl
 
 export const CategoriesGrid = () => {
   return (
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='bg-blue-100 mt-2 grid grid-cols-3 gap-3 px-6 py-8'>
       <Category name='Transport' Icon={BikeScooterIcon} />
       <Category name='Jedzenie' Icon={FastfoodOutlinedIcon} />
       <Category name='Zakupy' Icon={ShoppingCartOutlinedIcon} />

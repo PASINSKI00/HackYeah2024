@@ -14,8 +14,8 @@ const Tile = ({ label, Icon, className, active, onClick }: TileProps) => {
   return (
     <div
       className={clsx(
-        className,
         'group grid place-items-center gap-3 rounded-md px-4 py-4 shadow-lg transition-colors duration-300 hover:bg-blue active:bg-blue',
+        className,
         {
           'bg-blue text-white': active,
         },
