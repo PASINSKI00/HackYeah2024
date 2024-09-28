@@ -17,5 +17,5 @@ export const CategoriesGrid = () => {
       <Category name='Ogrzewanie' Icon={DeviceThermostatOutlinedIcon} />
       <Category name='Internet' Icon={NetworkWifi3BarOutlinedIcon} />
     </div>
-  )
-}
+  );
+};
