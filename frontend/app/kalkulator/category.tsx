@@ -19,7 +19,7 @@ interface CategoryProps {
 const Category = ({ name, Icon }: CategoryProps) => {
   return (
     <Dialog>
-      <DialogTrigger className='bg-white'>
+      <DialogTrigger className='bg-white rounded-md'>
         <Tile label={name} Icon={Icon} />
       </DialogTrigger>
       <DialogContent>
