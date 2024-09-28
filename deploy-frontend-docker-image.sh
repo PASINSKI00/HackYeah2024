@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# doctl auth init -t "API_TOKEN"
-doctl registry login &&\
-docker tag $IMAGE_NAME registry.digitalocean.com/container-registry-smallstepdiet/$IMAGE_NAME &&\
-docker push registry.digitalocean.com/container-registry-smallstepdiet/$IMAGE_NAME
-
-
 # Ustawienie zmiennych
 DOCKER_IMAGE_NAME="frontend-app-hackyeah"
 DOCKER_TAG="latest"
@@ -27,7 +21,7 @@ else
 fi
 
 # Uwierzytelnianie do docker registry
-# doctl auth init -t "dop_v1_b210d42a40d6f14be120d2b0f2b0195aa321e592e0dcacd63fe127c39833f0ab"
+doctl auth init -t "dop_v1_b210d42a40d6f14be120d2b0f2b0195aa321e592e0dcacd63fe127c39833f0ab"
 doctl registry login &&\
 
 # Tagowanie obrazu (odkomentuj, jeśli używasz registry)
