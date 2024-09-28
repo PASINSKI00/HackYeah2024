@@ -19,14 +19,15 @@ interface CategoryProps {
 const Category = ({ name, Icon }: CategoryProps) => {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger className='bg-white'>
         <Tile label={name} Icon={Icon} />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{name}</DialogTitle>
           <DialogDescription>
-            Uzupełnij poniższy formularz, aby obliczyć emisję CO<sub>2</sub> generowaną przez Twoją podróż.
+            Uzupełnij poniższy formularz, aby obliczyć emisję CO<sub>2</sub>{' '}
+            generowaną przez Twoją podróż.
           </DialogDescription>
         </DialogHeader>
 
