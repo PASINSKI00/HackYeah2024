@@ -11,25 +11,32 @@ export type ToggleGroupData = {
 
 interface ToggleGroupTileProps {
   name: string;
+  label: string;
   data: ToggleGroupData[];
 }
 
-const TileToggleGroup = ({ name, data }: ToggleGroupTileProps) => {
+function TileToggleGroup({ name, label, data }: ToggleGroupTileProps) {
   const { field } = useController({ name });
 
   return (
-    <div className='flex gap-4'>
-      {data.map((item) => (
-        <Tile
-          key={item.value}
-          label={item.label}
-          Icon={item.Icon}
-          active={field.value === item.value}
-          onClick={() => field.onChange(item.value)}
-        />
-      ))}
+    <div>
+      <label className='text-blue-700 mb-2 block text-lg font-bold'>
+        {label}
+      </label>
+      <div className='flex gap-4'>
+        {data.map((item) => (
+          <Tile
+            key={item.value}
+            label={item.label}
+            Icon={item.Icon}
+            className='cursor-pointer flex-1'
+            active={field.value === item.value}
+            onClick={() => field.onChange(item.value)}
+          />
+        ))}
+      </div>
     </div>
   );
-};
+}
 
 export default TileToggleGroup;

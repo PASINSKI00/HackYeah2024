@@ -1,6 +1,6 @@
-import clsx from 'clsx';
 import React from 'react';
 import { useController } from 'react-hook-form';
+import Chips from '../ui/chips';
 
 export type ToggleGroupData = {
   value: string;
@@ -9,27 +9,30 @@ export type ToggleGroupData = {
 
 interface ButtonToggleGroupProps {
   name: string;
+  label: string;
   data: ToggleGroupData[];
 }
 
-const ButtonToggleGroup = ({ name, data }: ButtonToggleGroupProps) => {
+function ButtonToggleGroup({ name, label, data }: ButtonToggleGroupProps) {
   const { field } = useController({ name });
 
   return (
-    <div className='flex gap-4'>
-      {data.map((item) => (
-        <button
-         key={item.value}
-          className={clsx('bg-white', {
-            'bg-blue': field.value === item.value,
-          })}
-          onClick={() => field.onChange(item.value)}
-        >
-          {item.label}
-        </button>
-      ))}
+    <div>
+      <label className='text-blue-700 mb-2 block text-lg font-bold'>
+        {label}
+      </label>
+      <div className='flex gap-4'>
+        {data.map((item) => (
+          <Chips
+            key={item.value}
+            label={item.label}
+            inactive={field.value !== item.value}
+            onClick={() => field.onChange(item.value)}
+          />
+        ))}
+      </div>
     </div>
   );
-};
+}
 
 export default ButtonToggleGroup;

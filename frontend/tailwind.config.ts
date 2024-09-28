@@ -16,6 +16,7 @@ const config: Config = {
         blue: {
           DEFAULT: 'var(--blue)',
           100: 'var(--blue-100)',
+          700: 'var(--blue-700)',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',
