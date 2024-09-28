@@ -1,0 +1,15 @@
+{
+  "id": 1231234,
+  "date": "2021-05-01",
+  "transport": {
+    "cars": 45,
+    "public_transport": 55,
+    "co": 2000
+  },
+  "sector_service": {
+    "gastronomy": 30,
+    "hotels": 50,
+    "trade": 20,
+    "co": 3000
+  }
+}

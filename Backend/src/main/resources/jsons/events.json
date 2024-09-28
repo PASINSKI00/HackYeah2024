@@ -1,0 +1,11 @@
+{
+  "id": 1231234,
+  "date": "2021-05-01",
+  "name": "HackYeah",
+  "description": "HackYeah to największy stacjonarny hackathon w Polsce. W ciągu 24 godzin uczestnicy pracują nad swoimi projektami, a następnie prezentują je przed jury.",
+  "location": "Stanisława Lema 7",
+  "co_electricty": 40,
+  "co_transport": 50,
+  "co_catering": 10,
+  "co_total": 3000
+}
