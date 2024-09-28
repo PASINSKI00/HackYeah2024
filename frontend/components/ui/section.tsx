@@ -8,6 +8,7 @@ interface SectionProps {
   description: string;
   imageSrc: string;
   statistics: StatisticProps[];
+  color: 'blue' | 'green';
 }
 
 function Section({
@@ -16,9 +17,15 @@ function Section({
   description,
   imageSrc,
   statistics,
+  color,
 }: SectionProps) {
   return (
-    <section className={cn('bg-blue-100 relative rounded-xl px-4 pb-2 pt-4')}>
+    <section
+      className={cn('relative rounded-xl px-4 pb-2 pt-4', {
+        'bg-blue-100': color === 'blue',
+        'bg-green-100': color === 'green',
+      })}
+    >
       <Image
         src={imageSrc}
         alt='costam'
@@ -26,10 +33,20 @@ function Section({
         height={80}
         className='absolute right-0 top-0 -translate-y-10 translate-x-8'
       />
-      <h3 className='text-2xl font-bold text-blue'>{label}</h3>
+      <h3
+        className={cn('text-2xl font-bold', {
+          'text-green': color === 'green',
+          'text-blue': color === 'blue',
+        })}
+      >
+        {label}
+      </h3>
       <div className='relative z-10 mt-3 flex gap-2 rounded-xl bg-white p-2'>
         <div className='w-[60%]'>
-          <p className='text-red mb-1 text-3xl font-[900]'>{value}</p>
+          <p className={cn('mb-1 text-3xl font-[900]', {
+            'text-red': color === 'blue',
+            'text-green': color === 'green',
+         })}>{value}</p>
           <p className='text-gray text-xs'>{description}</p>
         </div>
         <div className='flex w-[40%] flex-col gap-2'>

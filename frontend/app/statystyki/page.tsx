@@ -6,6 +6,7 @@ export default function Page() {
   return (
     <main className='px-6 grid gap-12 mt-4 mb-24'>
       <Section
+        color='blue'
         label='Transport'
         value='3000g co2'
         description='Transport generuje miesięcznie 3000g co2. Statystyki uzwględniają
@@ -15,6 +16,7 @@ export default function Page() {
       />
 
       <Section
+        color='blue'
         label='Sektor usługowy'
         value="2000g co2"
         description='Sektor usługowy generuje miesięcznie 2000g co2. Statystyki uzwględniają gastronomię, hotelarstwo oraz handel.'

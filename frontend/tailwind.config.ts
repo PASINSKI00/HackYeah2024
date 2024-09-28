@@ -18,6 +18,10 @@ const config: Config = {
           100: 'var(--blue-100)',
           700: 'var(--blue-700)',
         },
+        green: {
+          DEFAULT: 'var(--green)',
+          100: 'var(--green-100)',
+        },
         red: {
           DEFAULT: 'var(--red)',
         },
