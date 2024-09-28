@@ -8,16 +8,18 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import Tile from '@/components/ui/tile';
+import { IconComponent } from '@/types';
 
 interface CategoryProps {
   name: string;
+  Icon: IconComponent;
 }
 
-const Category = ({ name }: CategoryProps) => {
+const Category = ({ name, Icon }: CategoryProps) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Tile label={name} />
+        <Tile label={name} Icon={Icon} />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
