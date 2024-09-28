@@ -1,3 +1,47 @@
+INFO:
+
+Oszacowanie wartosci emisji poszczegolnych sektorow
+
+Indywidualne dzialania mieszkancow	
+Obliczane na podstawie:
+    - ilosci spalonego paliwa * wskaznik emisji paliwa
+    - ilosci zuzytego pradu * wskaznik emisji energii elektrycznej
+    - typu i kalorycznosci diety * wskaznik emisji zwiazanej z dieta
+
+
+Transport	
+Obliczany na podstawie 
+    - raportowanej ilosci sprzedanego paliwa w krakowie * wskaznik emisji paliwa
+    - ilosci energii elektrycznej zuzytej w komunikacji miejskiej * wskaznik emisji energii elektrycznej
+    - ilosci energii elektrycznej zuzytej do ladowania pojazdow elektrycznych pobieranej z * wskaznik emisji energii elektrycznej
+
+Sektor usługowy	
+Obliczany na podstawie sum zmiennych dla biznesow zarejestrowanych w Krakowie:
+    - raportu KOBIZE (paliwa, piece, klimatyzacje itp.)
+    - Ilosci energii elektrycznej zuzytej w sektorze usługowym * wskaznik emisji energii elektrycznej
+
+Wydarzenia
+Obliczany na podstawie zmiennych: 
+    - Ilosc uczestnikow * wskaznik sredniej emisji zwiazanej z transportem,
+    - Ilosc energii elektrycznej zuzytej podczas wydarzenia * wskaznik emisji energii elektrycznej,
+
+
+wskaznik emisji paliwa
+    diesel'a 2.3kg CO2/l
+    benzyny 2.7kg CO2/l
+wskaznik emisji energii elektrycznej 0.685kg CO2/kWh
+wskaznik emisji zwiazanej z dieta 
+    Keto			3kg / 1000 kcal
+    Miesna			2.7kg / 1000 kcal
+    Wszystkozerna	2.3kg / 1000 kcal
+    Bez miesna		1.7kg / 1000 kcal
+    Wegetarianska	1.2kg / 1000 kcal
+    weganska		0.7kg / 1000 kcal
+wskaznik sredniej emisji zwiazanej z transportem 
+    dostosowywany dynamicznie na podstawie informacji podawanych przez uzytkownikow oraz zbieranych przy kupowaniu biletow
+
+
+
 ### How to Run Docker for Development and Production
 
 1. **Development Environment**:
