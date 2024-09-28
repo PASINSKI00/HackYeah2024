@@ -3,13 +3,8 @@ package org.example.trees.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.trees.entities.Plant;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -61,7 +56,7 @@ public class PlantService {
 
         try {
             // Load the JSON file from the resources folder
-            InputStream inputStream = getClass().getResourceAsStream("/plants.json");
+            InputStream inputStream = getClass().getResourceAsStream("/jsons/plants.json");
             if (inputStream == null) {
                 throw new FileNotFoundException("Resource not found: /plants.json");
             }
