@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar';
+import PageHeader from '@/components/page-header';
+import Logo from '@/components/logo';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.className} antialiased`}>
+        <Logo />
+
+        <PageHeader />
+
         {children}
 
         <Navbar />
