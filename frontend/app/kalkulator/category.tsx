@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/dialog';
 import Tile from '@/components/ui/tile';
 import { IconComponent } from '@/types';
+import TransportForm from './forms/transport-form';
 
 interface CategoryProps {
   name: string;
@@ -28,6 +29,8 @@ const Category = ({ name, Icon }: CategoryProps) => {
             Uzupełnij poniższy formularz, aby obliczyć emisję CO<sub>2</sub> generowaną przez Twoją podróż.
           </DialogDescription>
         </DialogHeader>
+
+        <TransportForm />
       </DialogContent>
     </Dialog>
   );

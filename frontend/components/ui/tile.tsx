@@ -1,5 +1,6 @@
 import { IconComponent } from '@/types';
 import React from 'react';
+
 interface TileProps {
   label: string;
   Icon?: IconComponent;
