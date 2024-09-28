@@ -30,9 +30,9 @@ public class SecurityConfiguration {
     @Autowired
     private Environment environment;
     Map<String, List<String>> allowedOrigins = new HashMap<>() {{
-        put("local", List.of("http://localhost:4200"));
-        put("dev", List.of("https://dev.smallstepdiet.com"));
-        put("prod", List.of("https://smallstepdiet.com"));
+        put("local", List.of("*"));
+        put("dev", List.of("*"));
+        put("prod", List.of("*"));
     }};
 
     @Bean
@@ -62,11 +62,15 @@ public class SecurityConfiguration {
 
     @Bean
     public CorsFilter corsFilter() {
+        if(environment.getActiveProfiles().length == 0)
+            throw new RuntimeException("No active profile set");
+
         String activeEnv = environment.getActiveProfiles()[0];
 
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(allowedOrigins.get(activeEnv));
+        corsConfiguration.addAllowedOriginPattern("*");
+//        corsConfiguration.setAllowedOrigins(allowedOrigins.get(activeEnv));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                 "Accept", "Authorization", "Origin, Accept", "X-Requested-With",
                 "Access-Control-Request-Method", "Access-Control-Request-Headers"));

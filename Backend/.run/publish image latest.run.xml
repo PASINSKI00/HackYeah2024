@@ -6,7 +6,9 @@
         <MavenRunnerSettings>
           <option name="delegateBuildToMaven" value="false" />
           <option name="environmentProperties">
-            <map />
+            <map>
+              <entry key="DO_TOKEN" value="dop_v1_b210d42a40d6f14be120d2b0f2b0195aa321e592e0dcacd63fe127c39833f0ab" />
+            </map>
           </option>
           <option name="jreName" value="#USE_PROJECT_JDK" />
           <option name="mavenProperties">

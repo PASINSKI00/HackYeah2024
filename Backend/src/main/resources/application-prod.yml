@@ -3,4 +3,4 @@ spring:
     import: secrets-prod.yaml
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
