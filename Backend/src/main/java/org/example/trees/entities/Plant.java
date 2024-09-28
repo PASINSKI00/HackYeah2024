@@ -20,4 +20,6 @@ public class Plant {
     private String energySaved;
     @JsonProperty("number_of_trees")
     private int numberOfTrees;
+    @JsonProperty("co_absorbed_kg_per_year")
+    private float coAbsorbedKgPerYear;
 }
