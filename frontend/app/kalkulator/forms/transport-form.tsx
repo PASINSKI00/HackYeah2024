@@ -15,6 +15,9 @@ import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
 import { calculateEmission } from './helpers';
+import {DialogClose} from "@/components/ui/dialog";
+
+
 
 const transportData: ToggleGroupData[] = [
   { label: 'Samochód', value: 'car', Icon: DirectionsCarFilledOutlinedIcon },
@@ -82,7 +85,9 @@ const TransportForm = () => {
         <Image src='/trees.png' alt='drzewa' width={480} height={300} className='w-full h-auto' />
 
         {/* TODO: powinno to zamykać modal */}
-        <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto' />
+        <DialogClose asChild>
+          <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto' />
+        </DialogClose>
       </div>
     </FormProvider>
   );

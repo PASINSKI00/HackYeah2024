@@ -35,6 +35,8 @@ const Category = ({ name, Icon }: CategoryProps) => {
       </DialogContent>
     </Dialog>
   );
+
+
 };
 
 export default Category;
