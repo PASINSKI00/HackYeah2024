@@ -3,7 +3,7 @@
 import Section from '@/components/ui/section';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { countTree } from '@/app/api';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface TreeCount {
   young_tree: number;
@@ -23,32 +23,34 @@ export default function Page() {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchTreeCount = async () => {
+  const fetchTreeCount = useCallback(async () => {
       console.log(Number(localStorage.getItem('totalValue')) / 1000);
       try {
         const count = await countTree(
           Number(localStorage.getItem('totalValue')) / 1000,
         ); // Example sum value
+        
         const number100 =
           Math.round(count?.['100_old_tree'] || 1) === 0
             ? 0
             : Number(localStorage.getItem('totalValue')) /
               Math.round(count?.['100_old_tree'] || 1);
-        const numberAvarge =
+        
+        const numberAverage =
           Math.round(count?.['20_30_old_tree'] || 1) === 0
             ? 0
             : Number(localStorage.getItem('totalValue')) /
               Math.round(count?.['20_30_old_tree'] || 1);
 
         setDaily100(Math.round(number100));
-        setDailyAverage(Math.round(numberAvarge));
+        setDailyAverage(Math.round(numberAverage));
         setTreeCount(count);
       } catch (error) {
         console.error('Error fetching tree count:', error);
       }
-    };
+    }, []);
 
+  useEffect(() => {
     fetchTreeCount();
   }, [data]);
 
