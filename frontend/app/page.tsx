@@ -19,9 +19,9 @@ export default function Home() {
       </section>
 
       <section className='bg-green-100 px-8 py-10'>
-        <div className='flex gap-4'>
-          <h2 className='text-xl font-bold text-blue-700'>Dzienna emisja</h2>
-          <Chips label='1000g' />
+        <div className='flex items-center gap-4'>
+          <h2 className='text-2xl font-bold text-blue-700'>Dzienna emisja</h2>
+          <Chips label='1000g' className='text-lg' />
         </div>
 
         <CircularChart />
