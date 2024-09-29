@@ -2,8 +2,8 @@
 
 import Section from '@/components/ui/section';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { countTree } from '@/app/api';
-import { useEffect, useState } from 'react';
+import {countTree} from '@/app/api';
+import {useEffect, useState} from 'react';
 
 interface TreeCount {
     young_tree: number;
@@ -34,8 +34,9 @@ export default function Page() {
                     console.error('Error fetching tree count:', error);
                 }
             };
-
-            fetchTreeCount();
+            fetchTreeCount().then(() => {
+                console.log(treeCount);
+            });
             console.log(treeCount);
         }
     }, [data, treeCount]);
