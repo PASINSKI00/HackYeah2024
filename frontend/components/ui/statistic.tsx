@@ -15,8 +15,8 @@ function Statistic({ label, value, unit, Icon }: StatisticProps) {
       </div>
       <div className='flex-1 flex flex-col items-center justify-around'>
         <span className='text-[0.5rem] font-bold'>{label}</span>
-        <span className='font-[900] text-2xl'>
-          {value}{unit}
+        <span className='font-[900] text-2xl text-nowrap'>
+          {value}{unit === 'co2' ? <span className='text-[80%]'> CO<sub>2</sub></span> : unit}
         </span>
       </div>
     </div>

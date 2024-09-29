@@ -31,21 +31,23 @@ export default function Home() {
         </div>
       </section>
 
-      <div className='relative px-6 mt-16'>
+      <div className='relative mt-16 px-6'>
         <Section
+          imageOnTop
           label='Zieleń miejska'
           description='350 CO2 zostanie pochłonięte po 20 dniach przez małe sadzonki lub 2 dni przez 100-letnie drzewo.'
           value='350g'
-          imageSrc='/trees.png'
+          imageSrc='/outdoor.png'
           color='green'
           statistics={[]}
+          className='pb-3'
         />
 
-        <div className='-mt-4 z-10 w-full relative'>
-          <Link className='inline-block mx-auto' href='/kalkulator'>
+        <div className='relative flex z-10 -mt-4 w-full'>
+          <Link className='mx-auto inline-block' href='/kalkulator'>
             <Chips
               label='Oblicz swoje emisje'
-              className='mx-auto text-lg bg-green'
+              className='mx-auto bg-green text-lg'
             />
           </Link>
         </div>

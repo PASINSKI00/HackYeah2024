@@ -81,7 +81,6 @@ const TransportForm = () => {
 
         <Image src='/trees.png' alt='drzewa' width={480} height={300} className='w-full h-auto' />
 
-        {/* TODO: powinno to zamykać modal */}
         <DialogClose asChild>
           <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto' />
         </DialogClose>

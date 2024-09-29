@@ -10,6 +10,7 @@ interface SectionProps {
   statistics: StatisticProps[];
   color: 'blue' | 'green';
   withCO2?: boolean;
+  imageOnTop?: boolean;
   className?: string;
 }
 
@@ -21,6 +22,7 @@ function Section({
   statistics,
   color,
   className,
+  imageOnTop = false,
   withCO2 = true,
 }: SectionProps) {
   return (
@@ -35,10 +37,12 @@ function Section({
         alt='costam'
         width={180}
         height={80}
-        className='absolute right-0 top-0 -translate-y-10 translate-x-8'
+        className={cn('absolute right-0 top-0 -translate-y-10 translate-x-8', {
+          'z-[11]': imageOnTop,
+        })}
       />
       <h3
-        className={cn('text-2xl font-bold', {
+        className={cn('text-2xl font-bold w-[60%]', {
           'text-green': color === 'green',
           'text-blue': color === 'blue',
         })}
