@@ -13,3 +13,15 @@ export const transportFormInitials: TransportFormData = {
   fuel: 'petrol',
   averageConsumption: 7,
 };
+
+export const foodFormInitials: TransportFormData = {
+  diet: 'meat',
+  local: 'yes',
+  frequency: 'everyday',
+  meatConsumption: 20,
+  dairyConsumption: 20,
+  dairyConsumption: 20,
+  veggieAndFruitConsumption: 20,
+  wheatConsumption: 20,
+  processedFoodConsumption: 20,
+};

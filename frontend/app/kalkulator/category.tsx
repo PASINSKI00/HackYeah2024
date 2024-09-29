@@ -14,24 +14,24 @@ import TransportForm from './forms/transport-form';
 interface CategoryProps {
   name: string;
   Icon: IconComponent;
+  children?: React.ReactNode;
 }
 
-const Category = ({ name, Icon }: CategoryProps) => {
+const Category = ({ name, Icon, children, desc }: CategoryProps) => {
   return (
     <Dialog>
       <DialogTrigger className='bg-white rounded-md'>
-        <Tile label={name} Icon={Icon} />
+        <Tile label={name} Icon={Icon}/>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{name}</DialogTitle>
           <DialogDescription>
-            Uzupełnij poniższy formularz, aby obliczyć emisję CO<sub>2</sub>{' '}
-            generowaną przez Twoją podróż.
+            {desc}
           </DialogDescription>
         </DialogHeader>
 
-        <TransportForm />
+        {children}
       </DialogContent>
     </Dialog>
   );

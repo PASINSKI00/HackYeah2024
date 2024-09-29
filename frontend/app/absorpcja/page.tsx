@@ -13,7 +13,8 @@ interface TreeCount {
 export default function Page() {
     const [treeCount, setTreeCount] = useState<TreeCount | null>(null);
     const [data, setData] = useState(350);
-    const [daily, setDaily] = useState(350);
+    const [daily100, setDaily100] = useState(350);
+    const [dailyAverage, setDailyAverage] = useState(350);
 
     useEffect(() => {
         if (localStorage) {
@@ -27,8 +28,11 @@ export default function Page() {
                 console.log(Number(localStorage.getItem('totalValue')) / 1000);
                 try {
                     const count = await countTree(Number(localStorage.getItem('totalValue')) / 1000); // Example sum value
-                    const number = Number(localStorage.getItem('totalValue')) / Math.round((count?.['100_old_tree'] || 1));
-                    setDaily(Math.round(number));
+                    const number100 = Math.round((count?.['100_old_tree'] || 1)) === 0 ? 0 : Number(localStorage.getItem('totalValue')) / Math.round((count?.['100_old_tree'] || 1));
+                    const numberAvarge = Math.round((count?.['20_30_old_tree'] || 1)) === 0 ? 0 : Number(localStorage.getItem('totalValue')) / Math.round((count?.['100_old_tree'] || 1));
+
+                    setDaily100(Math.round(number100));
+                    setDailyAverage(Math.round(number100));
                     setTreeCount(count);
                 } catch (error) {
                     console.error('Error fetching tree count:', error);
@@ -61,7 +65,23 @@ export default function Page() {
                 statistics={[
                     {
                         label: 'Dziennie',
-                        value: daily,
+                        value: daily100,
+                        unit: 'co2',
+                        Icon: CalendarTodayIcon
+                    },
+                ]}
+            />
+
+            <Section
+                color='green'
+                label='Średniej wielkości dzewa'
+                value={`${Math.round(treeCount?.['20_30_old_tree'] || 0)} dni`}
+                description=''
+                imageSrc='/outdoor.png'
+                statistics={[
+                    {
+                        label: 'Dziennie',
+                        value: dailyAverage,
                         unit: 'co2',
                         Icon: CalendarTodayIcon
                     },
