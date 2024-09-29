@@ -10,8 +10,8 @@ interface EmissionsCalculatedProps<FormData> {
 function EmissionsCalculated<FormData extends Record<string, any>>({
   calculateEmission,
 }: EmissionsCalculatedProps<FormData>) {
-  const { watch } = useFormContext<FormData>();
-  const [totalEmission, setTotalEmission] = useState(350);
+  const { watch, getValues } = useFormContext<FormData>();
+  const [totalEmission, setTotalEmission] = useState(calculateEmission?.(getValues()) ?? 350);
 
   useEffect(() => {
     const { unsubscribe } = watch((value) => {
