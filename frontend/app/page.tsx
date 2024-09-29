@@ -1,3 +1,4 @@
+import CircularChart from '@/components/circular-chart';
 import Chips from '@/components/ui/chips';
 import Section from '@/components/ui/section';
 import Image from 'next/image';
@@ -23,12 +24,7 @@ export default function Home() {
           <Chips label='1000g' />
         </div>
 
-        <div className='mt-4 flex w-full flex-col items-center gap-4'>
-          <div className='h-48 w-48 rounded-full bg-green' />
-          <div>
-            <span className='text-gray'>300g</span>
-          </div>
-        </div>
+        <CircularChart />
       </section>
 
       <div className='relative mt-16 px-6'>
@@ -43,7 +39,7 @@ export default function Home() {
           className='pb-3'
         />
 
-        <div className='relative flex z-10 -mt-4 w-full'>
+        <div className='relative z-10 -mt-4 flex w-full'>
           <Link className='mx-auto inline-block' href='/kalkulator'>
             <Chips
               label='Oblicz swoje emisje'
