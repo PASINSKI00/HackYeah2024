@@ -3,7 +3,7 @@
 - Krystian Pasiński
 - Bartłomiej Smalec
 - Kacper Pawlak
-- Daniel 
+- Daniel Krzyżak
 
 <br />
 
