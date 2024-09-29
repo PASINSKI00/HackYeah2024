@@ -4,19 +4,12 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {powerFormInitials, shoppingFormInitials, TransportFormData} from './constants';
+import {ShoppingFormData, shoppingFormInitials} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
-import {calculateEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
 import {localProducts} from "@/app/kalkulator/forms/food-form";
-
-
-export const powerSources = [
-    {label: 'Energia z sieci', value: 'net'},
-    {label: 'Energia odnawialna', value: 'greenEnergy'},
-];
 
 
 export const shoppingTypes = [
@@ -38,14 +31,15 @@ export const houseType = [
 
 
 const ShoppingForm = () => {
-    const form = useForm<TransportFormData>({
+    const form = useForm<ShoppingFormData>({
         defaultValues: shoppingFormInitials,
     });
 
     const onConfirm = () => {
         const data = form.getValues();
         console.log(data);
-        const calculated = calculateEmission(data);
+        //const calculated = calculateEmission(data);
+        const calculated = 350;
         localStorage.setItem('totalValue', calculated.toString());
     };
 
@@ -67,7 +61,7 @@ const ShoppingForm = () => {
                 <ButtonToggleGroup name='shoppingFrequency' label='Częstotliwość zakupów' data={shoppingFrequencies}/>
 
 
-                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts} />
+                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts}/>
 
                 <TransportCalculated/>
 

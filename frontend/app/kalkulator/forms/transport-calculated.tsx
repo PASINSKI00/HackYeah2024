@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { TransportFormData } from './constants';
+import {useEffect, useState} from 'react';
+import {useFormContext} from 'react-hook-form';
+import {TransportFormData} from './constants';
 import Chips from '@/components/ui/chips';
-import { calculateEmission } from './helpers';
+import {calculateEmission} from './helpers';
 
 function TransportCalculated() {
   const { watch } = useFormContext<TransportFormData>();

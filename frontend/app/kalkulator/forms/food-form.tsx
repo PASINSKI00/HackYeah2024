@@ -1,59 +1,53 @@
 'use client';
 
-import TileToggleGroup, {
-    ToggleGroupData,
-} from '@/components/forms/tile-toggle-group';
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
-import DirectionsBusOutlinedIcon from '@mui/icons-material/DirectionsBusOutlined';
-import TrainOutlinedIcon from '@mui/icons-material/TrainOutlined';
+import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {foodFormInitials, TransportFormData, transportFormInitials} from './constants';
+import {FoodFormData, foodFormInitials} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
-import { calculateEmission } from './helpers';
+import {calculateFoodEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
 
 
 export const dietData = [
-    { label: 'Mięsna', value: 'meat' },
-    { label: 'Wegetarianska', value: 'vegetarian' },
-    { label: 'Wegańska', value: 'vegan' },
+    {label: 'Mięsna', value: 'meat'},
+    {label: 'Wegetarianska', value: 'vegetarian'},
+    {label: 'Wegańska', value: 'vegan'},
 ];
 
 export const localProducts = [
-    { label: 'Tak', value: 'yes' },
-    { label: 'Nie', value: 'no' },
+    {label: 'Tak', value: 'yes'},
+    {label: 'Nie', value: 'no'},
 ];
 
 export const frequencyOutside = [
-    { label: 'Codzinnie', value: 'everyday' },
-    { label: 'Kilka razy w miesiącu', value: 'fewTimesInWeek' },
+    {label: 'Codzinnie', value: 'everyday'},
+    {label: 'Kilka razy w miesiącu', value: 'fewTimesInWeek'},
 ];
 
 const FoodForm = () => {
-    const form = useForm<TransportFormData>({
+    const form = useForm<FoodFormData>({
         defaultValues: foodFormInitials,
     });
 
     const onConfirm = () => {
         const data = form.getValues();
         console.log(data);
-        const calculated = calculateEmission(data);
+        const calculated = calculateFoodEmission(data);
         localStorage.setItem('totalValue', calculated.toString());
     };
 
     return (
         <FormProvider {...form}>
             <div className='grid gap-6'>
-                <ButtonToggleGroup name='diet' label='Rodzaj diety' data={dietData} />
+                <ButtonToggleGroup name='diet' label='Rodzaj diety' data={dietData}/>
 
-                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts} />
+                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts}/>
 
-                <ButtonToggleGroup name='frequency' label='Wybór produktów lokalnych' data={frequencyOutside} />
+                <ButtonToggleGroup name='frequency' label='Wybór produktów lokalnych' data={frequencyOutside}/>
 
                 <SliderWithValue
                     name='meatConsumption'
@@ -101,13 +95,13 @@ const FoodForm = () => {
                 />
 
 
-                <TransportCalculated />
+                <TransportCalculated/>
 
-                <Image src='/trees.png' alt='drzewa' width={480} height={300} className='w-full h-auto' />
+                <Image src='/trees.png' alt='drzewa' width={480} height={300} className='w-full h-auto'/>
 
                 {/* TODO: powinno to zamykać modal */}
                 <DialogClose asChild>
-                    <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto' />
+                    <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto'/>
                 </DialogClose>
             </div>
         </FormProvider>

@@ -4,11 +4,10 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {powerFormInitials, TransportFormData} from './constants';
+import {PowerFormData, powerFormInitials} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
-import {calculateEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
 
 
@@ -24,14 +23,15 @@ export const houseType = [
 
 
 const PowerForm = () => {
-    const form = useForm<TransportFormData>({
+    const form = useForm<PowerFormData>({
         defaultValues: powerFormInitials,
     });
 
     const onConfirm = () => {
         const data = form.getValues();
         console.log(data);
-        const calculated = calculateEmission(data);
+        // const calculated = calculateEmission(data);
+        const calculated = 350;
         localStorage.setItem('totalValue', calculated.toString());
     };
 

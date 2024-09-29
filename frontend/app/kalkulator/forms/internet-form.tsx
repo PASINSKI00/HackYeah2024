@@ -4,11 +4,10 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {internetFormInitials, TransportFormData} from './constants';
+import {InternetFormData, internetFormInitials} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
-import {calculateEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
 
 
@@ -25,14 +24,15 @@ export const activitiesType = [
 ];
 
 const InternetForm = () => {
-    const form = useForm<TransportFormData>({
+    const form = useForm<InternetFormData>({
         defaultValues: internetFormInitials,
     });
 
     const onConfirm = () => {
         const data = form.getValues();
         console.log(data);
-        const calculated = calculateEmission(data);
+        // const calculated = calculateEmission(data);
+        const calculated = 350
         localStorage.setItem('totalValue', calculated.toString());
     };
 

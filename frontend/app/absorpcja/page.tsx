@@ -7,6 +7,7 @@ import {useEffect, useState} from 'react';
 
 interface TreeCount {
     young_tree: number;
+    '20_30_old_tree': number;
     '100_old_tree': number;
 }
 

@@ -1,4 +1,4 @@
-import { TransportFormData } from './constants';
+import {FoodFormData, TransportFormData} from './constants';
 
 export function calculateEmission(formData: TransportFormData) {
   const baseEmission = formData.distance * formData.people * formData.averageConsumption;
@@ -33,4 +33,10 @@ export function calculateEmission(formData: TransportFormData) {
   }
 
   return Math.round(totalEmission);
+}
+
+export function calculateFoodEmission(formData: FoodFormData) {
+  const baseEmission = formData.wheatConsumption * formData.dairyConsumption * formData.meatConsumption;
+
+  return Math.round(baseEmission);
 }
