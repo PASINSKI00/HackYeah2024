@@ -1,45 +1,103 @@
-INFO:
+# Członkowie zespołu:
+- Katarzyna Poręba  
+- Krystian Pasiński
+- Bartłomiej Smalec
+- Kacper Pawlak
+- Daniel 
 
-Oszacowanie wartosci emisji poszczegolnych sektorow
+<br />
 
-Indywidualne dzialania mieszkancow	
-Obliczane na podstawie:
-    - ilosci spalonego paliwa * wskaznik emisji paliwa
-    - ilosci zuzytego pradu * wskaznik emisji energii elektrycznej
-    - typu i kalorycznosci diety * wskaznik emisji zwiazanej z dieta
-
-
-Transport	
-Obliczany na podstawie 
-    - raportowanej ilosci sprzedanego paliwa w krakowie * wskaznik emisji paliwa
-    - ilosci energii elektrycznej zuzytej w komunikacji miejskiej * wskaznik emisji energii elektrycznej
-    - ilosci energii elektrycznej zuzytej do ladowania pojazdow elektrycznych pobieranej z * wskaznik emisji energii elektrycznej
-
-Sektor usługowy	
-Obliczany na podstawie sum zmiennych dla biznesow zarejestrowanych w Krakowie:
-    - raportu KOBIZE (paliwa, piece, klimatyzacje itp.)
-    - Ilosci energii elektrycznej zuzytej w sektorze usługowym * wskaznik emisji energii elektrycznej
-
-Wydarzenia
-Obliczany na podstawie zmiennych: 
-    - Ilosc uczestnikow * wskaznik sredniej emisji zwiazanej z transportem,
-    - Ilosc energii elektrycznej zuzytej podczas wydarzenia * wskaznik emisji energii elektrycznej,
+# Our Open Source TechStack:
+- Java
+- Spring Boot
+- Spring Security
+- Spring Hibernate
+- Next.js 
+- Tailwind
+- React
+- Cloud
 
 
-wskaznik emisji paliwa
-    diesel'a 2.3kg CO2/l
-    benzyny 2.7kg CO2/l
-wskaznik emisji energii elektrycznej 0.685kg CO2/kWh
-wskaznik emisji zwiazanej z dieta 
-    Keto			3kg / 1000 kcal
-    Miesna			2.7kg / 1000 kcal
-    Wszystkozerna	2.3kg / 1000 kcal
-    Bez miesna		1.7kg / 1000 kcal
-    Wegetarianska	1.2kg / 1000 kcal
-    weganska		0.7kg / 1000 kcal
-wskaznik sredniej emisji zwiazanej z transportem 
-    dostosowywany dynamicznie na podstawie informacji podawanych przez uzytkownikow oraz zbieranych przy kupowaniu biletow
+<br />
 
+
+![alt text](./resources/Slide%204_3%20-%201.png)
+![alt text](./resources/Slide%204_3%20-%202.png)
+![alt text](./resources/Slide%204_3%20-%203.png)
+![alt text](./resources/Slide%204_3%20-%204.png)
+![alt text](./resources/Slide%204_3%20-%205.png)
+![alt text](./resources/Slide%204_3%20-%206.png)
+![alt text](./resources/Slide%204_3%20-%207.png)
+
+<br />
+
+# Pomysły:
+
+  - Trackowanie dziennej emisji
+
+  - Widoczne trendy emisji w czasie
+
+  - Super logo
+
+  - Dynamiczne pobieranie danych o zielenii
+
+<br />
+
+# Aspekty techniczne:
+
+  - dostępne na **wszystkich platformach**
+
+  - używane sprawdzone nowoczesne technologie **OpenSource**
+
+  - REST API - **jeden backend** dla wszystkich platform
+
+<br />
+
+# Design:
+
+  - **intuicyjny** i **nowoczesny** design
+
+  - **przyjazny** i **przejrzysty** dla użytkownika
+
+  - elementy **kolorystycznie** nawiązujące do **Miasta Kraków**
+
+  - wysoka **responsywność**
+
+  - jasno zdefiniowana nawigacja
+
+  - **interaktywny** interfejs
+
+  - dostępność w internecie
+
+<br />
+
+# Powiązanie z kategorią: 
+
+  - wpasowana w tematykę zrównoważonego rozwoju i ochrony środowiska, pomagając użytkownikom zrozumieć ich wpływ na emisję CO2
+
+  - podnosi świadomość na temat zmian wpływu działalności człowieka na środowisko oraz sposobów redukcji emisji
+
+<br />
+
+# WOW! Factor:
+
+  - wspaniałe logo nawiązujące do Krakowa
+
+  - wspaniały design
+
+  - dostępność aplikacji z internetu
+
+  - wykorzystanie chmury
+
+  - zautomatyzowane CD
+
+
+
+<br/>
+<br/>
+<br/>
+
+## Information for Developers
 
 
 ### How to Run Docker for Development and Production
