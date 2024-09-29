@@ -154,7 +154,7 @@ export default function Component() {
             className='pointer-events-none absolute'
             style={{
               left: `${hoverPosition.x}px`,
-              top: `${hoverPosition.y}px`,
+              top: `${hoverPosition.y - 20}px`,
               transform: 'translate(-50%, -50%)',
             }}
           >
