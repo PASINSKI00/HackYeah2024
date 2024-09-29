@@ -10,6 +10,8 @@ import TransportForm from "@/app/kalkulator/forms/transport-form";
 import FoodForm from "@/app/kalkulator/forms/food-form";
 import PowerForm from "@/app/kalkulator/forms/power-form";
 import ShoppingForm from "@/app/kalkulator/forms/shopping-form";
+import HeatingForm from "@/app/kalkulator/forms/heating-form";
+import InternetForm from "@/app/kalkulator/forms/internet-form";
 
 export const CategoriesGrid = () => {
     return (
@@ -28,8 +30,12 @@ export const CategoriesGrid = () => {
             <Category name='Prąd' Icon={EnergySavingsLeafOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 użytego prądu">
                 <PowerForm/>
             </Category>
-            <Category name='Ogrzewanie' Icon={DeviceThermostatOutlinedIcon}/>
-            <Category name='Internet' Icon={NetworkWifi3BarOutlinedIcon}/>
+            <Category name='Ogrzewanie' Icon={DeviceThermostatOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 ogrzewania">
+                <HeatingForm/>
+            </Category>
+            <Category name='Internet' Icon={NetworkWifi3BarOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 internetu">
+                <InternetForm/>
+            </Category>
         </div>
     );
 };

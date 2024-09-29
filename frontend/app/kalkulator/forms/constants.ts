@@ -39,3 +39,11 @@ export const shoppingFormInitials: TransportFormData = {
   costs: '500',
   local: 'yes',
 };
+
+export const heatingFormInitials: TransportFormData = {
+  heatingType: 'gas',
+  powerConsumption: 250,
+  areaOfHeating: 20,
+  isolation: 'veryGood',
+  frequency: 'yes',
+};
