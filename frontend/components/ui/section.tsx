@@ -1,17 +1,20 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Statistic, { StatisticProps } from './statistic';
-
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 interface SectionProps {
   label: string;
   value: string;
   description: string;
-  imageSrc: string;
+  imageSrc?: string;
   statistics: StatisticProps[];
-  color: 'blue' | 'green';
+  color: 'blue' | 'green' | 'darkBlue';
   withCO2?: boolean;
   imageOnTop?: boolean;
   className?: string;
+  location?: StatisticProps;
+  date?: StatisticProps;
+  moreInfo: string;
 }
 
 function Section({
@@ -24,31 +27,48 @@ function Section({
   className,
   imageOnTop = false,
   withCO2 = true,
+  location,
+  date,
+  moreInfo,
 }: SectionProps) {
   return (
     <section
-      className={cn('relative rounded-xl px-4 pb-2 pt-4', {
-        'bg-blue-100': color === 'blue',
-        'bg-green-100': color === 'green',
-      }, className)}
+      className={cn(
+        'relative rounded-xl px-4 pb-2 pt-4',
+        {
+          'bg-blue-100': color === 'blue',
+          'bg-green-100': color === 'green',
+          'bg-blue': color === 'darkBlue',
+        },
+        className,
+      )}
     >
-      <Image
-        src={imageSrc}
-        alt='costam'
-        width={180}
-        height={80}
-        className={cn('absolute right-0 top-0 -translate-y-10 translate-x-8', {
-          'z-[11]': imageOnTop,
-        })}
-      />
-      <h3
-        className={cn('text-2xl font-bold w-[60%]', {
-          'text-green': color === 'green',
-          'text-blue': color === 'blue',
-        })}
-      >
-        {label}
-      </h3>
+      {imageSrc && (
+        <Image
+          src={imageSrc}
+          alt='costam'
+          width={180}
+          height={80}
+          className={cn(
+            'absolute right-0 top-0 -translate-y-10 translate-x-8',
+            {
+              'z-[11]': imageOnTop,
+            },
+          )}
+        />
+      )}
+      <div>
+        <h3
+          className={cn('w-[60%] text-2xl font-bold', {
+            'text-green': color === 'green',
+            'text-blue': color === 'blue',
+            'text-white': color === 'darkBlue',
+          })}
+        >
+          {label}
+        </h3>
+        {location && <Statistic key={location.label} {...location} />}
+      </div>
       <div className='relative z-10 mt-3 flex gap-2 rounded-xl bg-white p-2'>
         <div className='w-[60%]'>
           <p
@@ -72,6 +92,20 @@ function Section({
           ))}
         </div>
       </div>
+      {date && (
+        <div className='mt-4 flex justify-between gap-1 rounded-xl'>
+          {date && <Statistic {...date} smallText />}
+          {moreInfo && (
+            <div
+              className={cn('text-[14px]', {
+                'text-white': color === 'darkBlue',
+              })}
+            >
+              Dodatkowe informacje <ArrowRightAltIcon />
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 }

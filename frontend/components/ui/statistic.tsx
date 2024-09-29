@@ -1,22 +1,33 @@
 import { IconComponent } from '@/types';
 
 export interface StatisticProps {
-  label: string;
-  value: number;
-  unit: string;
+  label?: string;
+  value: number | string;
+  unit?: string;
   Icon: IconComponent;
+  smallText?: boolean;
 }
 
-function Statistic({ label, value, unit, Icon }: StatisticProps) {
+function Statistic({ label, value, unit, Icon, smallText }: StatisticProps) {
   return (
-    <div className='px-2 bg-blue-100 rounded-xl flex items-center gap-1 flex-shrink-0 flex-grow-0'>
+    <div className='flex flex-shrink-0 flex-grow-0 items-center gap-1 rounded-xl bg-blue-100 px-2'>
       <div>
-        <Icon className='rounded-full text-sm text-white p-1 w-6 h-6 bg-black' />
+        <Icon className='h-6 w-6 rounded-full bg-black p-1 text-sm text-white' />
       </div>
-      <div className='flex-1 flex flex-col items-center justify-around'>
-        <span className='text-[0.5rem] font-bold'>{label}</span>
-        <span className='font-[900] text-2xl text-nowrap'>
-          {value}{unit === 'co2' ? <span className='text-[80%]'> CO<sub>2</sub></span> : unit}
+      <div className='flex flex-1 flex-col items-center justify-around'>
+        {label && <span className='text-[0.5rem] font-bold'>{label}</span>}
+        <span
+          className={`text-nowrap font-[900] ${!smallText ? 'text-2xl' : ''}`}
+        >
+          {value}
+          {unit === 'co2' ? (
+            <span className='text-[80%]'>
+              {' '}
+              CO<sub>2</sub>
+            </span>
+          ) : (
+            unit
+          )}
         </span>
       </div>
     </div>
