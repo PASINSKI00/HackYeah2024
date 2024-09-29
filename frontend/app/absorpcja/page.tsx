@@ -29,10 +29,10 @@ export default function Page() {
                 try {
                     const count = await countTree(Number(localStorage.getItem('totalValue')) / 1000); // Example sum value
                     const number100 = Math.round((count?.['100_old_tree'] || 1)) === 0 ? 0 : Number(localStorage.getItem('totalValue')) / Math.round((count?.['100_old_tree'] || 1));
-                    const numberAvarge = Math.round((count?.['20_30_old_tree'] || 1)) === 0 ? 0 : Number(localStorage.getItem('totalValue')) / Math.round((count?.['100_old_tree'] || 1));
+                    const numberAvarge = Math.round((count?.['20_30_old_tree'] || 1)) === 0 ? 0 : Number(localStorage.getItem('totalValue')) / Math.round((count?.['20_30_old_tree'] || 1));
 
                     setDaily100(Math.round(number100));
-                    setDailyAverage(Math.round(number100));
+                    setDailyAverage(Math.round(numberAvarge));
                     setTreeCount(count);
                 } catch (error) {
                     console.error('Error fetching tree count:', error);

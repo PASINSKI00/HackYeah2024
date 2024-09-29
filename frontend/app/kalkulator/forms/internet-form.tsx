@@ -4,42 +4,29 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {powerFormInitials, shoppingFormInitials, TransportFormData} from './constants';
+import {internetFormInitials, TransportFormData} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
 import {calculateEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
-import {localProducts} from "@/app/kalkulator/forms/food-form";
 
 
-export const powerSources = [
-    {label: 'Energia z sieci', value: 'net'},
-    {label: 'Energia odnawialna', value: 'greenEnergy'},
+export const deviceTypes = [
+    {label: 'Komputer stacjonarny', value: 'pc'},
+    {label: 'Laptop', value: 'laptop'},
+    {label: 'Tablet', value: 'tablet'},
 ];
 
-
-export const shoppingTypes = [
-    {label: 'Odzież', value: 'clothes'},
-    {label: 'Obuwie', value: 'shoes'},
-    {label: 'Elektronika', value: 'electronics'},
+export const activitiesType = [
+    {label: 'Praca', value: 'work'},
+    {label: 'Rozrywka', value: 'entertainment'},
+    {label: 'Media społecznościowe', value: 'socialMedia'},
 ];
-
-export const shoppingFrequencies = [
-    {label: 'Codziennie', value: 'everyday'},
-    {label: 'Tygodniowo', value: 'weekly'},
-    {label: 'Miesięcznie', value: 'monthly'},
-];
-
-export const houseType = [
-    {label: 'Mieszkanie w bloku', value: 'aparment'},
-    {label: 'Dom jednorodzinny', value: 'house'},
-];
-
 
 const InternetForm = () => {
     const form = useForm<TransportFormData>({
-        defaultValues: shoppingFormInitials,
+        defaultValues: internetFormInitials,
     });
 
     const onConfirm = () => {
@@ -53,21 +40,27 @@ const InternetForm = () => {
         <FormProvider {...form}>
             <div className='grid gap-6'>
 
-                <ButtonToggleGroup name='shoppingType' label='Rodzaj zakupów' data={shoppingTypes}/>
+                <ButtonToggleGroup name='deviceType' label='Rodzaj urządzenia' data={deviceTypes}/>
 
                 <SliderWithValue
-                    name='costs'
-                    label='Kwota wydatków'
-                    step={10}
+                    name='time'
+                    label='Czas korzystania z internetu'
+                    step={1}
                     min={1}
-                    max={1000}
-                    unit='zł'
+                    max={5}
+                    unit='h'
                 />
 
-                <ButtonToggleGroup name='shoppingFrequency' label='Częstotliwość zakupów' data={shoppingFrequencies}/>
+                <ButtonToggleGroup name='activityType' label='Rodzaj aktywności' data={activitiesType}/>
 
-
-                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts} />
+                <SliderWithValue
+                    name='energyConsumption'
+                    label='Średnie zużycie energii'
+                    step={1}
+                    min={1}
+                    max={5}
+                    unit='kWh'
+                />
 
                 <TransportCalculated/>
 

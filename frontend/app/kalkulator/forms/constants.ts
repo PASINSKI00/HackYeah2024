@@ -47,3 +47,10 @@ export const heatingFormInitials: TransportFormData = {
   isolation: 'veryGood',
   frequency: 'yes',
 };
+
+export const internetFormInitials: TransportFormData = {
+  deviceType: 'pc',
+  time: 2,
+  activityType: 'work',
+  energyConsumption: 0.5,
+};
