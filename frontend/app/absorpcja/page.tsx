@@ -3,7 +3,7 @@
 import Section from '@/components/ui/section';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import {countTree} from '@/app/api';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 interface TreeCount {
     young_tree: number;
@@ -16,6 +16,8 @@ export default function Page() {
     const [data, setData] = useState(350);
     const [daily100, setDaily100] = useState(350);
     const [dailyAverage, setDailyAverage] = useState(350);
+    const prevDataRef = useRef<number | null>(null);
+
 
     useEffect(() => {
         if (localStorage) {
@@ -24,7 +26,7 @@ export default function Page() {
     }, []);
 
     useEffect(() => {
-        if (data) {
+        if (data && data !== prevDataRef.current) {
             const fetchTreeCount = async () => {
                 console.log(Number(localStorage.getItem('totalValue')) / 1000);
                 try {
@@ -39,13 +41,10 @@ export default function Page() {
                     console.error('Error fetching tree count:', error);
                 }
             };
-            fetchTreeCount().then(() => {
-                console.log(treeCount);
-            });
-            console.log(treeCount);
+            fetchTreeCount();
+            prevDataRef.current = data;
         }
-    }, [data, treeCount]);
-
+    }, [data]);
     return (
         <main className='mb-12 mt-4 grid gap-12 px-6'>
             <Section
