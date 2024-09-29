@@ -1,6 +1,7 @@
 import Section from '@/components/ui/section';
 import { HackYeahStatistics, KosciuszkonStatistics } from './constants';
-import BikeScooterIcon from '@mui/icons-material/BikeScooter';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 export default function Page() {
   return (
@@ -15,11 +16,11 @@ export default function Page() {
         location={{
           label: 'Lokalizacja',
           value: 'Stanisława Lema 7',
-          Icon: BikeScooterIcon,
+          Icon: LocationOnOutlinedIcon,
         }}
         date={{
           value: '28.10.2024',
-          Icon: BikeScooterIcon,
+          Icon: CalendarTodayOutlinedIcon,
         }}
         moreInfo='Dodatkowe informacje'
       />
@@ -34,11 +35,11 @@ export default function Page() {
         location={{
           label: 'Lokalizacja',
           value: 'Stanisława Lema 7',
-          Icon: BikeScooterIcon,
+          Icon: LocationOnOutlinedIcon,
         }}
         date={{
           value: '28.10.2024',
-          Icon: BikeScooterIcon,
+          Icon: CalendarTodayOutlinedIcon,
         }}
         moreInfo='Dodatkowe informacje'
       />

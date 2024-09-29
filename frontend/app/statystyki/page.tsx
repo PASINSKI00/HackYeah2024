@@ -8,8 +8,8 @@ export default function Page() {
       <Section
         color='blue'
         label='Transport'
-        value='3000g'
-        description='Transport generuje miesięcznie 3000g co2. Statystyki uzwględniają
+        value='1150024t'
+        description='Transport generuje miesięcznie 1150024t CO2. Statystyki uzwględniają
             samochody oraz komunikację miejską.'
         imageSrc='/electric-car.png'
         statistics={transportStatistics}
@@ -18,8 +18,8 @@ export default function Page() {
       <Section
         color='blue'
         label='Sektor usługowy'
-        value="2000g"
-        description='Sektor usługowy generuje miesięcznie 2000g co2. Statystyki uzwględniają gastronomię, hotelarstwo oraz handel.'
+        value="383341t"
+        description='Sektor usługowy generuje miesięcznie 383341t CO2. Statystyki uzwględniają gastronomię, hotelarstwo oraz handel.'
         imageSrc='/dinner.png'
         statistics={servicesStatistics}
        />

@@ -1,12 +1,14 @@
 import { StatisticProps } from '@/components/ui/statistic';
 import BikeScooterIcon from '@mui/icons-material/BikeScooter';
+import FastfoodOutlinedIcon from '@mui/icons-material/FastfoodOutlined';
+import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
 
 export const HackYeahStatistics: StatisticProps[] = [
   {
     label: 'Prąd',
     value: 37.5,
     unit: '%',
-    Icon: BikeScooterIcon,
+    Icon: ElectricBoltOutlinedIcon,
   },
   {
     label: 'Transport',
@@ -18,7 +20,7 @@ export const HackYeahStatistics: StatisticProps[] = [
     label: 'Katering',
     value: 34,
     unit: '%',
-    Icon: BikeScooterIcon,
+    Icon: FastfoodOutlinedIcon,
   },
 ];
 
@@ -27,7 +29,7 @@ export const KosciuszkonStatistics: StatisticProps[] = [
     label: 'Prąd',
     value: 22.6,
     unit: '%',
-    Icon: BikeScooterIcon,
+    Icon: ElectricBoltOutlinedIcon,
   },
   {
     label: 'Transport',
@@ -39,6 +41,6 @@ export const KosciuszkonStatistics: StatisticProps[] = [
     label: 'Katering',
     value: 20.5,
     unit: '%',
-    Icon: BikeScooterIcon,
+    Icon: FastfoodOutlinedIcon,
   },
 ];
