@@ -184,7 +184,7 @@ export default function Component() {
           </div>
         )}
       </div>
-      <div className='mt-6 flex justify-center space-x-4 rounded-full bg-gray-100 p-3'>
+      <div className='mt-6 flex justify-evenly space-x-4 rounded-full bg-gray-100 p-3'>
         {data.map((item) => (
           <div key={item.category} className='flex items-center space-x-2'>
             <div
