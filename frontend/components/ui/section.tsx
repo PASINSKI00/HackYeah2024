@@ -10,6 +10,7 @@ interface SectionProps {
   statistics: StatisticProps[];
   color: 'blue' | 'green';
   withCO2?: boolean;
+  className?: string;
 }
 
 function Section({
@@ -19,6 +20,7 @@ function Section({
   imageSrc,
   statistics,
   color,
+  className,
   withCO2 = true,
 }: SectionProps) {
   return (
@@ -26,7 +28,7 @@ function Section({
       className={cn('relative rounded-xl px-4 pb-2 pt-4', {
         'bg-blue-100': color === 'blue',
         'bg-green-100': color === 'green',
-      })}
+      }, className)}
     >
       <Image
         src={imageSrc}
