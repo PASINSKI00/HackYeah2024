@@ -2,7 +2,7 @@ import React from 'react';
 import { CategoriesGrid } from './categories-grid';
 import Image from 'next/image';
 
-export const CalculatorPage = () => {
+const CalculatorPage = () => {
   return (
     <main className='mb-16'>
         <CategoriesGrid />

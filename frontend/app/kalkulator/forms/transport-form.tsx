@@ -1,17 +1,20 @@
 'use client';
 
-import TileToggleGroup, {
-  ToggleGroupData,
-} from '@/components/forms/tile-toggle-group';
+import TileToggleGroup, {ToggleGroupData,} from '@/components/forms/tile-toggle-group';
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import {FormProvider, useForm} from 'react-hook-form';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import DirectionsBusOutlinedIcon from '@mui/icons-material/DirectionsBusOutlined';
 import TrainOutlinedIcon from '@mui/icons-material/TrainOutlined';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import { TransportFormData, transportFormInitials } from './constants';
+import {TransportFormData, transportFormInitials} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
+import Chips from '@/components/ui/chips';
+import Image from 'next/image';
+import {calculateEmission} from './helpers';
+import {DialogClose} from "@/components/ui/dialog";
+
 
 const transportData: ToggleGroupData[] = [
   { label: 'Samochód', value: 'car', Icon: DirectionsCarFilledOutlinedIcon },
@@ -30,6 +33,13 @@ const TransportForm = () => {
     defaultValues: transportFormInitials,
   });
 
+  const onConfirm = () => {
+    const data = form.getValues();
+    console.log(data);
+    const calculated = calculateEmission(data);
+    localStorage.setItem('totalValue', calculated.toString());
+  };
+
   return (
     <FormProvider {...form}>
       <div className='grid gap-6'>
@@ -38,9 +48,43 @@ const TransportForm = () => {
           label='Rodzaj transportu'
           data={transportData}
         />
-        <SliderWithValue step={1} min={0} max={100} defaultValue={20} onChange={() => {}}/>
-        <ButtonToggleGroup name='fuel' label="Rodzaj paliwa" data={fuelData} />
+
+        <SliderWithValue
+          name='distance'
+          label='Odległość'
+          step={1}
+          min={1}
+          max={100}
+          unit='km'
+        />
+
+        <SliderWithValue
+          name='people'
+          label='Liczba osób'
+          step={1}
+          min={1}
+          max={10}
+        />
+
+        <ButtonToggleGroup name='fuel' label='Rodzaj paliwa' data={fuelData} />
+
+        <SliderWithValue
+          name='averageConsumption'
+          label='Średnie spalanie'
+          step={0.5}
+          min={1}
+          max={20}
+          unit='l/100km'
+        />
+
         <TransportCalculated />
+
+        <Image src='/trees.png' alt='drzewa' width={480} height={300} className='w-full h-auto' />
+
+        {/* TODO: powinno to zamykać modal */}
+        <DialogClose asChild>
+          <Chips onClick={onConfirm} label='Zapisz' className='bg-green w-32 mx-auto' />
+        </DialogClose>
       </div>
     </FormProvider>
   );
