@@ -8,6 +8,7 @@ import DeviceThermostatOutlinedIcon from '@mui/icons-material/DeviceThermostatOu
 import NetworkWifi3BarOutlinedIcon from '@mui/icons-material/NetworkWifi3BarOutlined';
 import TransportForm from "@/app/kalkulator/forms/transport-form";
 import FoodForm from "@/app/kalkulator/forms/food-form";
+import PowerForm from "@/app/kalkulator/forms/power-form";
 
 export const CategoriesGrid = () => {
     return (
@@ -21,7 +22,9 @@ export const CategoriesGrid = () => {
                 <FoodForm/>
             </Category>
             <Category name='Zakupy' Icon={ShoppingCartOutlinedIcon}/>
-            <Category name='Prąd' Icon={EnergySavingsLeafOutlinedIcon}/>
+            <Category name='Prąd' Icon={EnergySavingsLeafOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 użytego prądu">
+                <PowerForm/>
+            </Category>
             <Category name='Ogrzewanie' Icon={DeviceThermostatOutlinedIcon}/>
             <Category name='Internet' Icon={NetworkWifi3BarOutlinedIcon}/>
         </div>

@@ -25,3 +25,10 @@ export const foodFormInitials: TransportFormData = {
   wheatConsumption: 20,
   processedFoodConsumption: 20,
 };
+
+export const powerFormInitials: TransportFormData = {
+  powerConsumption: 10,
+  inhabitantCount: 1,
+  powerSource: 'net',
+  houseType: 'aparment',
+};
