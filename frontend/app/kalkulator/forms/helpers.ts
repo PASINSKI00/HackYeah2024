@@ -37,6 +37,7 @@ export function calculateEmission(formData: TransportFormData) {
 
 export function calculateFoodEmission(formData: FoodFormData) {
   const baseEmission = formData.wheatConsumption * formData.dairyConsumption * formData.meatConsumption;
-
+  console.log(baseEmission);
+  
   return Math.round(baseEmission);
 }
