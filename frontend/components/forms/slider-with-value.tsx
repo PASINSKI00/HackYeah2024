@@ -41,7 +41,7 @@ export default function SliderWithValue({
           min={min}
           max={max}
         />
-        <span className='flex h-8 w-24 flex-row items-center justify-center rounded-full bg-blue px-2 text-xs text-white'>
+        <span className='flex h-8 min-w-24 flex-row items-center justify-center rounded-full bg-blue px-2 text-xs text-white'>
           {unit ? `${field.value} ${unit}` : field.value}
         </span>
       </div>

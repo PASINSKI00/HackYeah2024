@@ -13,7 +13,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className='fixed bottom-0 flex w-full justify-around bg-white shadow-lg'>
+    <nav className='fixed bottom-0 flex w-full justify-around bg-white shadow-lg z-20'>
       <Link className='p-4' href='/kalkulator'>
         <CalculateOutlinedIcon
           className={clsx('w-[18px]', {

@@ -20,6 +20,10 @@ export default function PageHeader() {
   const pathname: keyof typeof pageConfig =
     usePathname() as keyof typeof pageConfig;
 
+  if (pathname === '/') {
+    return null;
+  }
+
   return (
     <Link href='/' className='z-10 ml-7 mt-8 flex flex-row items-center'>
       <ArrowBackOutlinedIcon className='mr-3 h-4 w-4' />
