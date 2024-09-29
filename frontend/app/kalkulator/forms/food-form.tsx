@@ -52,7 +52,7 @@ const FoodForm = () => {
 
         <ButtonToggleGroup
           name='frequency'
-          label='Wybór produktów lokalnych'
+          label='Częstotliwość jedzenia na mieście'
           data={frequencyOutside}
         />
 
