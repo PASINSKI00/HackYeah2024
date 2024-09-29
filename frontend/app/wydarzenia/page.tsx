@@ -6,6 +6,7 @@ export default function Page() {
   return (
     <main className='mb-24 mt-4 grid gap-12 px-6'>
       <Section
+        centerLabel
         color='darkBlue'
         label='HackYeah'
         value='4409 kg'
@@ -24,6 +25,7 @@ export default function Page() {
       />
 
       <Section
+      centerLabel
         color='blue'
         label='Kosciuszkon'
         value='2197 kg'

@@ -14,7 +14,8 @@ interface SectionProps {
   className?: string;
   location?: StatisticProps;
   date?: StatisticProps;
-  moreInfo: string;
+  moreInfo?: string;
+  centerLabel?: boolean;
 }
 
 function Section({
@@ -30,6 +31,7 @@ function Section({
   location,
   date,
   moreInfo,
+  centerLabel,
 }: SectionProps) {
   return (
     <section
@@ -63,6 +65,7 @@ function Section({
             'text-green': color === 'green',
             'text-blue': color === 'blue',
             'text-white': color === 'darkBlue',
+            'w-full text-center block mb-2': centerLabel,
           })}
         >
           {label}
