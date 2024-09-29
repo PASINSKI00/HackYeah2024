@@ -32,3 +32,10 @@ export const powerFormInitials: TransportFormData = {
   powerSource: 'net',
   houseType: 'aparment',
 };
+
+export const shoppingFormInitials: TransportFormData = {
+  shoppingType: 'clothes',
+  shoppingFrequency: 'everyday',
+  costs: '500',
+  local: 'yes',
+};

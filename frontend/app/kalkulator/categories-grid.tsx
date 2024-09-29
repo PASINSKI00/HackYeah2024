@@ -9,6 +9,7 @@ import NetworkWifi3BarOutlinedIcon from '@mui/icons-material/NetworkWifi3BarOutl
 import TransportForm from "@/app/kalkulator/forms/transport-form";
 import FoodForm from "@/app/kalkulator/forms/food-form";
 import PowerForm from "@/app/kalkulator/forms/power-form";
+import ShoppingForm from "@/app/kalkulator/forms/shopping-form";
 
 export const CategoriesGrid = () => {
     return (
@@ -21,7 +22,9 @@ export const CategoriesGrid = () => {
                       desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 generowaną przez jedzenie, które spożywałeś">
                 <FoodForm/>
             </Category>
-            <Category name='Zakupy' Icon={ShoppingCartOutlinedIcon}/>
+            <Category name='Zakupy' Icon={ShoppingCartOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 twoich zakupów">
+                <ShoppingForm/>
+            </Category>
             <Category name='Prąd' Icon={EnergySavingsLeafOutlinedIcon} desc="Uzupełnij poniższy formularz, aby obliczyć emisję CO2 użytego prądu">
                 <PowerForm/>
             </Category>

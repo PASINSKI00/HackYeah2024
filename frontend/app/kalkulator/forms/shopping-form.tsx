@@ -4,17 +4,31 @@ import React from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import ButtonToggleGroup from '@/components/forms/button-toggle-group';
 import TransportCalculated from './transport-calculated';
-import {powerFormInitials, TransportFormData} from './constants';
+import {powerFormInitials, shoppingFormInitials, TransportFormData} from './constants';
 import SliderWithValue from '@/components/forms/slider-with-value';
 import Chips from '@/components/ui/chips';
 import Image from 'next/image';
 import {calculateEmission} from './helpers';
 import {DialogClose} from "@/components/ui/dialog";
+import {localProducts} from "@/app/kalkulator/forms/food-form";
 
 
 export const powerSources = [
     {label: 'Energia z sieci', value: 'net'},
     {label: 'Energia odnawialna', value: 'greenEnergy'},
+];
+
+
+export const shoppingTypes = [
+    {label: 'Odzież', value: 'clothes'},
+    {label: 'Obuwie', value: 'shoes'},
+    {label: 'Elektronika', value: 'electronics'},
+];
+
+export const shoppingFrequencies = [
+    {label: 'Codziennie', value: 'everyday'},
+    {label: 'Tygodniowo', value: 'weekly'},
+    {label: 'Miesięcznie', value: 'monthly'},
 ];
 
 export const houseType = [
@@ -23,9 +37,9 @@ export const houseType = [
 ];
 
 
-const PowerForm = () => {
+const ShoppingForm = () => {
     const form = useForm<TransportFormData>({
-        defaultValues: powerFormInitials,
+        defaultValues: shoppingFormInitials,
     });
 
     const onConfirm = () => {
@@ -39,27 +53,21 @@ const PowerForm = () => {
         <FormProvider {...form}>
             <div className='grid gap-6'>
 
-                <SliderWithValue
-                    name='powerConsumption'
-                    label='Zużycie prądu'
-                    step={1}
-                    min={1}
-                    max={250}
-                    unit='kWh'
-                />
-
-                <ButtonToggleGroup name='powerSource' label='Żródło energii' data={powerSources}/>
+                <ButtonToggleGroup name='shoppingType' label='Rodzaj zakupów' data={shoppingTypes}/>
 
                 <SliderWithValue
-                    name='inhabitantCount'
-                    label='Liczba mieszkańców'
-                    step={1}
+                    name='costs'
+                    label='Kwota wydatków'
+                    step={10}
                     min={1}
-                    max={10}
-                    unit=' '
+                    max={1000}
+                    unit='zł'
                 />
 
-                <ButtonToggleGroup name='houseType' label='Typ mieszkania/domu' data={houseType}/>
+                <ButtonToggleGroup name='shoppingFrequency' label='Częstotliwość zakupów' data={shoppingFrequencies}/>
+
+
+                <ButtonToggleGroup name='local' label='Wybór produktów lokalnych' data={localProducts} />
 
                 <TransportCalculated/>
 
@@ -74,4 +82,4 @@ const PowerForm = () => {
     );
 };
 
-export default PowerForm;
+export default ShoppingForm;
